@@ -48,3 +48,13 @@ Post model	1
 Authentication middleware for protecting /api/v1/posts	2
 
 The callback route has a test	2
+
+
+## Notes
+
+/login => redirect to github login
+/callback
+    1. process the TEMPORARY ONE TIME PW and the CLIENT SECRET that we get in response to our initial request for Github to authorize the user.
+    2. make a request to /login/oauth/access_token which will include the TEMPORARY ONE TIME PW and the CLIENT SECRET and the CLIENT ID
+    3. make a request to the fihub appi for user data that includes the FINAL AUTHORIZATION CODE we get in resposne to our request no. 2
+    4. create a user inour data base with that information
