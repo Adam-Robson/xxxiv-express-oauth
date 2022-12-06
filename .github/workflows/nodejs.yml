@@ -20,8 +20,8 @@ jobs:
           CI: true
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/postgres
           GH_REDIRECT_URI: http://localhost:7890/api/v1/github/callback
-          GH_CLIENT_ID: 4fc7386565cc57c4257b
-          GH_CLIENT_SECRET: cb7e6008306344e9a3039a86328c3d26bc6b0ed1
+          GH_CLIENT_ID: client_id
+          GH_CLIENT_SECRET: secret
           SALT_ROUNDS: 10
           COOKIE_NAME: session
           JWT_SECRET: secret
