@@ -30,7 +30,7 @@ describe('github auth', () => {
       exp: expect.any(Number),
     });
   });
-    
+
   afterAll(() => {
     pool.end();
   });

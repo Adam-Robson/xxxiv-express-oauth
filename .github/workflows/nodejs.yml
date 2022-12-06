@@ -18,10 +18,9 @@ jobs:
       - run: npm test
         env:
           CI: true
-          DATABASE_URL: postgres://postgres:postgres@localhost:5432/postgres
-          GH_REDIRECT_URI: http://localhost:7890/api/v1/github/callback
-          GH_CLIENT_ID: client_id
-          GH_CLIENT_SECRET: secret
-          SALT_ROUNDS: 10
-          COOKIE_NAME: session
-          JWT_SECRET: secret
+          DATABASE_URL: postgres://alchemy:alchemy@postgres:5432/alchemy
+          COOKIE_NAME: ${{ secrets.COOKIE_NAME }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          GH_CLIENT_ID: ${{ secrets.GH_CLIENT_ID }}
+          GH_CLIENT_SECRET: ${{ secrets.GH_CLIENT_SECRET }}
+          GH_REDIRECT_URI: ${{ secrets.GH_REDIRECT_URI }}
