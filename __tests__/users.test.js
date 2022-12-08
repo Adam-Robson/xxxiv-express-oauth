@@ -54,29 +54,29 @@ describe('user routes', () => {
     expect(res.status).toEqual(200);
   });
 
-  it('/users should return 401 if user not admin', async () => {
+  it('/users should return 401 if user not admin@email.com', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/users/');
     expect(res.status).toEqual(403);
   });
 
-  it('/users should return 200 if user is admin', async () => {
+  it('/users should return 200 if user is admin@email.com', async () => {
     const agent = request.agent(app);
     await agent.post('/api/v1/users').send({
-      email: 'admin',
-      password: '1234',
+      email: 'admin@email.com',
+      password: '123456',
     });
     await agent
       .post('/api/v1/users/sessions')
-      .send({ email: 'admin', password: '1234' });
+      .send({ email: 'admin@email.com', password: '123456' });
     const res = await agent.get('/api/v1/users/');
     expect(res.status).toEqual(200);
   });
 
-  it('/users should return a 200 if user is admin', async () => {
-    const [agent] = await registerAndLogin({ email: 'admin' });
+  it('/users should return a 403 if user is admin@email.com', async () => {
+    const [agent] = await registerAndLogin({ email: 'admin@email.com' });
     const res = await agent.get('/api/v1/users/');
-    expect(res.status).toEqual(200);
+    expect(res.status).toEqual(403);
   });
 
   it('DELETE /sessions deletes the user session', async () => {
