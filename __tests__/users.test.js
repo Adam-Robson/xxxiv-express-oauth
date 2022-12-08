@@ -54,7 +54,7 @@ describe('user routes', () => {
     expect(res.status).toEqual(200);
   });
 
-  it('/users should return 401 if user not admin@email.com', async () => {
+  it('/users should return 403 if user not admin@email.com', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/users/');
     expect(res.status).toEqual(403);
