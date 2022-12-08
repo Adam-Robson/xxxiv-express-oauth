@@ -37,7 +37,7 @@ describe('github auth', () => {
     const deleteUser = await agent.delete('/api/v1/github/dashboard');
     expect(deleteUser.status).toBe(200);
     const res = await agent.get('/api/v1/users/dashboard');
-    expect(res.status).toBe(401);
+    expect(res.status).toBe(404);
   });
 
 
