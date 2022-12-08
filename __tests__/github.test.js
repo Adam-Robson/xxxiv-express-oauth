@@ -32,7 +32,11 @@ describe('github auth', () => {
   });
 
   it('/api/v1/github signs out a user', async () => {
-    const res = await request(app).get('/api/v1/github/dashboard');
+    const agent = request.agent(app);
+    await agent.get('/api/v1/github/callback?code=42');
+    const deleteUser = await agent.delete('/api/v1/github/dashboard');
+    expect(deleteUser.status).toBe(200);
+    const res = await agent.get('/api/v1/users/dashboard');
     expect(res.status).toBe(401);
   });
 
