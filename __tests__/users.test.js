@@ -73,10 +73,10 @@ describe('user routes', () => {
     expect(res.status).toEqual(200);
   });
 
-  it('/users should return a 403 if user is admin@email.com', async () => {
+  it('/users should return a 200 if user is admin@email.com', async () => {
     const [agent] = await registerAndLogin({ email: 'admin@email.com' });
     const res = await agent.get('/api/v1/users/');
-    expect(res.status).toEqual(403);
+    expect(res.status).toEqual(200);
   });
 
   it('DELETE /sessions deletes the user session', async () => {
