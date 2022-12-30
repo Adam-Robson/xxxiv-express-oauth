@@ -20,6 +20,7 @@ jobs:
           CI: true
           DATABASE_URL: postgres://alchemy:alchemy@postgres:5432/alchemy
           COOKIE_NAME: ${{ secrets.COOKIE_NAME }}
+          SALT_ROUNDS: ${{ secrets.SALT_ROUNDS }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
           GH_CLIENT_ID: ${{ secrets.GH_CLIENT_ID }}
           GH_CLIENT_SECRET: ${{ secrets.GH_CLIENT_SECRET }}
